@@ -1,0 +1,30 @@
+def CzyPosortowana(T):
+    return
+
+def WyszukiwanieBinarne(T, a, n):
+    lewy = 0
+    prawy = n - 1
+
+    while lewy < prawy:
+        srodek = (lewy + prawy) // 2
+        if T[srodek] < a:
+            lewy = srodek + 1
+        else:
+            prawy = srodek
+
+    if T[lewy] == a:
+        print("Tak")
+    else:
+        print("Nie")
+
+def Zadanie1():
+    T = []
+    print("Podaj rosnący ciąg")
+    for i in range(10):
+        element = int(input(f"Podaj {i + 1} element: "))
+        T.append(element)
+
+    userNumber = int(input("Sprawdź czy jest w liście: "))
+    WyszukiwanieBinarne(T, userNumber, 10)
+
+Zadanie1()
