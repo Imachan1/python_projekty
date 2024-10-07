@@ -28,3 +28,19 @@ def Zadanie1():
     WyszukiwanieBinarne(T, userNumber, 10)
 
 Zadanie1()
+
+
+
+def Bin(T,a,lewy,prawy):
+    if lewy>prawy:
+        return False
+    srodek=(lewy+prawy)//2
+    if T[srodek] ==a:
+        return True
+    elif T[srodek]<a:
+        return Bin(T,a,srodek+1,prawy)
+    else:
+        return Bin(T,a,lewy,srodek-1)
+
+T=[0,1,2,3,4,5,6,7,8,9]
+print(Bin(T,6,0,9))
