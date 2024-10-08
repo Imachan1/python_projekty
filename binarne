@@ -50,6 +50,6 @@ z pliku ciagi.txt, które zawierają liczbę 10. Wykorzystaj wyszukiwanie binarn
 W pliku ciagi.txt każdy wiersz zawiera jeden ciąg liczb całkowitych rozdzielonych spacjami'''
 
 f=open("ciagi.txt","r")
-liczby = list(map(int,f.read().split()))
+#liczby = list(map(int,f.read().split()))
 print(f.readline())
 f.close()
