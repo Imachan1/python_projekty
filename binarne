@@ -40,7 +40,7 @@ def Bin(T,a,lewy,prawy):
     elif T[srodek]<a:
         return Bin(T,a,srodek+1,prawy)
     else:
-        return Bin(T,a,lewy,srodek-1)
+        return Bin(T,a,lewy,srodek-1)#return Bin(T,a,lewy,srodek)
 
 T=[0,1,2,3,4,5,6,7,8,9]
 print(Bin(T,6,0,9))
