@@ -44,3 +44,12 @@ def Bin(T,a,lewy,prawy):
 
 T=[0,1,2,3,4,5,6,7,8,9]
 print(Bin(T,6,0,9))
+
+'''Napisz program, który wyświetli na standardowym wyjściu te ciągi liczbowe 
+z pliku ciagi.txt, które zawierają liczbę 10. Wykorzystaj wyszukiwanie binarne. 
+W pliku ciagi.txt każdy wiersz zawiera jeden ciąg liczb całkowitych rozdzielonych spacjami'''
+
+f=open("ciagi.txt","r")
+liczby = list(map(int,f.read().split()))
+print(f.readline())
+f.close()
