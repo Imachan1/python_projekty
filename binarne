@@ -53,3 +53,62 @@ f=open("ciagi.txt","r")
 #liczby = list(map(int,f.read().split()))
 print(f.readline())
 f.close()
+
+
+
+
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if arr[middle] == target:
+            return True
+        elif arr[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+    return False
+
+def find_sequences_with_10(filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            numbers = list(map(int, line.split()))
+            if binary_search(numbers, 10):
+                print(line.strip())
+
+find_sequences_with_10('ciagi.txt')
+
+
+
+
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if arr[middle] == target:
+            return True
+        elif arr[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+    return False
+
+def find_sequences_with_10_from_complex_file(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        num_sequences = int(lines[0].strip())
+        index = 1
+
+        for _ in range(num_sequences):
+            num_elements = int(lines[index].strip())
+            sequence = list(map(int, lines[index + 1].split()))
+            if len(sequence) != num_elements:
+                raise ValueError("Liczba elementów w wierszu nie zgadza się z oczekiwaną wartością.")
+            if binary_search(sequence, 10):
+                print(" ".join(map(str, sequence)))
+            index += 2
+
+find_sequences_with_10_from_complex_file('ciagi2.txt')
+
+
+
