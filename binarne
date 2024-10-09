@@ -74,35 +74,19 @@ def czy_10(filename):
 
 czy_10('ciagi.txt')
 
+#Zadanie4
 
-def binary_search(arr, target):
-    left, right = 0, len(arr) - 1
-    while left <= right:
-        middle = (left + right) // 2
-        if arr[middle] == target:
-            return True
-        elif arr[middle] < target:
-            left = middle + 1
-        else:
-            right = middle - 1
-    return False
 
-def find_sequences_with_10_from_complex_file(filename):
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-        num_sequences = int(lines[0].strip())
-        index = 1
-
-        for _ in range(num_sequences):
-            num_elements = int(lines[index].strip())
-            sequence = list(map(int, lines[index + 1].split()))
-            if len(sequence) != num_elements:
-                raise ValueError("Liczba elementów w wierszu nie zgadza się z oczekiwaną wartością.")
-            if binary_search(sequence, 10):
-                print(" ".join(map(str, sequence)))
-            index += 2
-
-find_sequences_with_10_from_complex_file('ciagi2.txt')
+plik=open('ciagi2.txt','r')
+n=int(plik.readline().rstrip())# usuwa wszystkie biale znaki na koncu,usunięcie określonej części tekstu
+#for znak in n:
+#    print(ord(znak)) #ord -> liczba -> kod ascii
+for i in range(n):
+    d=int(plik.readline().rstrip())
+    ciag = list(map(int,plik.readline().split()))
+    if WyszukiwanieBinarne(ciag,10,d):
+        print(ciag)
+plik.close()
 
 
 
