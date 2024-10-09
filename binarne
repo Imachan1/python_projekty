@@ -85,7 +85,7 @@ for i in range(n):
     d=int(plik.readline().rstrip())
     ciag = list(map(int,plik.readline().split()))
     if WyszukiwanieBinarne(ciag,10,d):
-        print(ciag)
+        print(ciag)# w wyniku musi zwracać ciągi a nie tak/nie!!!
 plik.close()
 
 
