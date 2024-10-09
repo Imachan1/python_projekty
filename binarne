@@ -1,5 +1,7 @@
-def CzyPosortowana(T):
-    return
+#Zadanie1
+
+#def CzyPosortowana(T):
+#    return
 
 def WyszukiwanieBinarne(T, a, n):
     lewy = 0
@@ -29,7 +31,7 @@ def Zadanie1():
 
 Zadanie1()
 
-
+#Zadanie2
 
 def Bin(T,a,lewy,prawy):
     if lewy>prawy:
@@ -49,15 +51,9 @@ print(Bin(T,6,0,9))
 z pliku ciagi.txt, które zawierają liczbę 10. Wykorzystaj wyszukiwanie binarne. 
 W pliku ciagi.txt każdy wiersz zawiera jeden ciąg liczb całkowitych rozdzielonych spacjami'''
 
-f=open("ciagi.txt","r")
-#liczby = list(map(int,f.read().split()))
-print(f.readline())
-f.close()
+#Zadanie3
 
-
-
-
-def binary_search(arr, target):
+def binarne(arr, target):
     left, right = 0, len(arr) - 1
     while left <= right:
         middle = (left + right) // 2
@@ -69,16 +65,14 @@ def binary_search(arr, target):
             right = middle - 1
     return False
 
-def find_sequences_with_10(filename):
-    with open(filename, 'r') as file:
+def czy_10(filename):
+    with open('ciagi.txt', 'r') as file:
         for line in file:
             numbers = list(map(int, line.split()))
-            if binary_search(numbers, 10):
+            if binarne(numbers, 10):
                 print(line.strip())
 
-find_sequences_with_10('ciagi.txt')
-
-
+czy_10('ciagi.txt')
 
 
 def binary_search(arr, target):
