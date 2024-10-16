@@ -1,0 +1,148 @@
+'''
+Napisz program, który wczytuje ze standardowego wejścia ciąg 10 uporządkowanych niemalejąco liczb całkowitych t[0..9]. 
+Następnie program zapyta o liczbę całkowitą a i wyświetli na standardowym wyjściu tekst „tak”, gdy liczba a znajduje 
+się wśród liczb t[0..9] oraz tekst „nie” w przeciwnym przypadku. Wykorzystaj wyszukiwanie binarne w wersji iteracyjnej. 
+W przypadku podania przez użytkownika ciągu, który nie jest uporządkowany niemalejąco program wyświetli komunikat 
+„Ciąg musi być uporządkowany niemalejąco”.
+'''
+
+def WyszukiwanieBinarne(T, a, n):
+    lewy = 0
+    prawy = n - 1
+
+    while lewy < prawy:
+        srodek = (lewy + prawy) // 2
+        if T[srodek] < a:
+            lewy = srodek + 1
+        else:
+            prawy = srodek
+
+    if T[lewy] == a:
+        print("Tak")
+    else:
+        print("Nie")
+
+def Zadanie1():
+    T = []
+    print("Podaj rosnący ciąg")
+    for i in range(10):
+        element = int(input(f"Podaj {i + 1} element: "))
+        T.append(element)
+
+    userNumber = int(input("Sprawdź czy jest w liście: "))
+    WyszukiwanieBinarne(T, userNumber, 10)
+
+Zadanie1()
+
+
+'''
+Wykonaj zadanie 1 wykorzystując wyszukiwanie binarne w wersji rekurencyjnej
+'''
+
+def Bin(T,a,lewy,prawy):
+    if lewy>prawy:
+        return False
+    srodek=(lewy+prawy)//2
+    if T[srodek] ==a:
+        return True
+    elif T[srodek]<a:
+        return Bin(T,a,srodek+1,prawy)
+    else:
+        return Bin(T,a,lewy,srodek-1)#return Bin(T,a,lewy,srodek)
+
+T=[0,1,2,3,4,5,6,7,8,9]
+print(Bin(T,6,0,9))
+
+'''
+Napisz program, który wyświetli na standardowym wyjściu te ciągi liczbowe 
+z pliku ciagi.txt, które zawierają liczbę 10. Wykorzystaj wyszukiwanie binarne. 
+W pliku ciagi.txt każdy wiersz zawiera jeden ciąg liczb całkowitych rozdzielonych spacjami
+'''
+
+def binarne(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if arr[middle] == target:
+            return True
+        elif arr[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+    return False
+
+def czy_10(filename):
+    with open('ciagi.txt', 'r') as file:
+        for line in file:
+            numbers = list(map(int, line.split()))
+            if binarne(numbers, 10):
+                print(line.strip())
+
+czy_10('ciagi.txt')
+
+'''
+Napisz program, który wyświetli na standardowym wyjściu te ciągi liczbowe z pliku ciagi2.txt, które zawierają liczbę 10. 
+Wykorzystaj wyszukiwanie binarne. W pliku ciagi2.txt:
+Pierwszy wiersz – liczba ciągów w pliku
+Drugi wiersz – ile jest liczb w kolejnym wierszu
+Trzeci wiersz – pierwszy ciąg, który ma tyle liczb rozdzielonych spacją ile wskazuje liczba w poprzednim wierszu.
+Czwarty wiersz – ile jest liczb w kolejnym wierszu
+Piąty wiersz – drugi ciąg, który ma tyle liczb rozdzielonych spacją ile wskazuje liczba w poprzednim wierszu.
+itd.
+'''
+
+plik=open('ciagi2.txt','r')
+n=int(plik.readline().rstrip())# usuwa wszystkie biale znaki na koncu,usunięcie określonej części tekstu
+#for znak in n:
+#    print(ord(znak)) #ord -> liczba -> kod ascii
+for i in range(n):
+    d=int(plik.readline().rstrip())
+    ciag = list(map(int,plik.readline().split()))
+    if WyszukiwanieBinarne(ciag,10,d):
+        print(ciag)# w wyniku musi zwracać ciągi a nie tak/nie!!!
+plik.close()
+
+'''
+Napisz algorytm w formie pseudokodu przyjmując, że elementy tablicy T indeksowane są od 1.
+'''
+
+def WyszukiwanieBinarnepPseudokod(T, a, n):
+    lewy = 1
+    prawy = n
+
+    while lewy < prawy:
+        srodek = (lewy + prawy) // 2
+        if T[srodek] < a:
+            lewy = srodek + 1
+        else:
+            prawy = srodek
+
+    return T[lewy] == a
+
+def Zad_5():
+    T = list(map(int, input().split()))
+    T.insert(0, 0)
+    print(T)
+    a = int(input())
+    
+    if CzyMalejacy(T):
+        WyszukiwanieBinarnepPseudokod(T, a, len(T))
+    else:
+        print("Ciąg musi być uporządkowany.")
+
+'''
+Zadanie maturalne
+'''
+
+def LiczbyUlubione():
+    n = 10
+    A = [0, 5, 99, 3, 7, 11, 13, 4, 24, 4, 8]
+    i = 1
+
+    while i <= n:
+        if A[i] % 2 == 0:
+            w = A[i]
+            break
+        i += 1
+
+    print(w)
