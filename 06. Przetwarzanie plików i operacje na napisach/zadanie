@@ -1,0 +1,23 @@
+'''
+Napisz program, który zapyta użytkownika o podanie imienia i nazwiska,
+a następnie zapisze te dane w pliku dane_osobowe.txt w dwóch wierszach
+(pierwszy wiersz imię, drugi nazwisko).
+'''
+
+def Zadanie_1():
+    imie = input("Podaj imie: ")
+    nazwisko = input("Podaj nazwisko: ")
+
+    plik=open("dane_osobowe","w")
+    plik.write(imie,nazwisko)
+    plik.close
+
+'''
+Napisz program, który odczyta imię i nazwisko zapisane w pliku dane_osobowe.txt 
+i wyświetli powitanie „Witaj imię i nazwisko”, gdzie imię i nazwisko należy zastąpić 
+odczytanymi z pliku tekstowego
+'''
+
+    def Zadanie_2():
+        plik=open("dane.txt","r")
+        osoby=(plik.readline().rstrip)
