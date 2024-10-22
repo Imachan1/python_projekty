@@ -93,7 +93,6 @@ def display_numbered_words():
     words = file.read().split()
     counter=1
     for i in range(0,len(words)):
-        word=file.readline().rstrip().split()
         for word in words:
             counter+=1
     file.close()
@@ -101,3 +100,8 @@ def display_numbered_words():
 display_numbered_words()
 
 #Zadanie B
+
+def LiczbaSlow():
+    file=open('slowa.txt','r')
+    words=file.read().split()
+    
