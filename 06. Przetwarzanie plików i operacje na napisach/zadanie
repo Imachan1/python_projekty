@@ -71,3 +71,33 @@ b. wyświetli sumę, minimum, maksimum, średnią liczb odczytanych z pliku loso
         print(f"Max: {max(LosoweLiczby)}")
         print(f"Min: {min(LosoweLiczby)}")
         print(f"Średnia: {statistics.mean(LosoweLiczby)}") # statistics.mean() --> oblicza średnią liczb z listy
+
+'''
+Napisz program (każdy podpunkt jako osobny program), który odczyta plik slowa.txt, a następnie:
+a. wyświetli ponumerowane słowa z pliku tekstowego
+b. wyświetli liczbę słów w pliku
+c. wyświetli słowa zaczynające się na literę A
+d. wyświetli słowa kończące się na literę A
+e. wyświetli słowa oraz liczbę liter, z których się składają
+f. *wyświetli najkrótsze oraz najdłuższe słowo w pliku oraz ich długość (jeżeli jest ich kilka wyświetl
+pierwsze z nich)
+g. wyświetli słowa o długości 6
+h. wyświetli słowa zawierające literę O oraz dla każdego z tych słów liczbę tych liter O
+i. wyświetli ile razy w całym pliku występuje litera A
+'''
+
+#Zadanie A
+
+def display_numbered_words():
+    file=open('slowa.txt', 'r')
+    words = file.read().split()
+    counter=1
+    for i in range(0,len(words)):
+        word=file.readline().rstrip().split()
+        for word in words:
+            counter+=1
+    file.close()
+
+display_numbered_words()
+
+#Zadanie B
