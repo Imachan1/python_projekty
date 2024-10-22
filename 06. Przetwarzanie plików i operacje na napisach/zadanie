@@ -1,3 +1,5 @@
+'''Więcej informacji:  https://ggoralski.gitlab.io/python-wprowadzenie/czesc_i/16-pliki/'''
+
 '''
 Napisz program, który zapyta użytkownika o podanie imienia i nazwiska,
 a następnie zapisze te dane w pliku dane_osobowe.txt w dwóch wierszach
