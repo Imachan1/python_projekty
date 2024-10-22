@@ -4,13 +4,17 @@ a następnie zapisze te dane w pliku dane_osobowe.txt w dwóch wierszach
 (pierwszy wiersz imię, drugi nazwisko).
 '''
 
-def Zadanie_1():
-    imie = input("Podaj imie: ")
-    nazwisko = input("Podaj nazwisko: ")
-
-    plik=open("dane_osobowe","w")
-    plik.write(imie,nazwisko)
-    plik.close
+ 
+    def Zad_1():
+        userFirstname = input("Podaj imię: ")
+        userSurname = input("Podaj nazwisko: ")
+    
+        DaneOsobowe = open("dane_osobowe.txt", "a")
+        DaneOsobowe.write(userFirstname + "\n")
+        DaneOsobowe.write(userSurname + "\n")
+    
+        print("Zapisane!")
+        DaneOsobowe.close()
 
 '''
 Napisz program, który odczyta imię i nazwisko zapisane w pliku dane_osobowe.txt 
@@ -18,6 +22,50 @@ i wyświetli powitanie „Witaj imię i nazwisko”, gdzie imię i nazwisko nale
 odczytanymi z pliku tekstowego
 '''
 
-    def Zadanie_2():
-        plik=open("dane.txt","r")
-        osoby=(plik.readline().rstrip)
+
+    def Zad_2():
+        plik = open("dane_osobowe.txt", "r")
+        DaneOsobowe = plik.readlines()
+        
+        for i in range(0, len(DaneOsobowe), 2):
+            imie = DaneOsobowe[i].strip()
+            nazwisko = DaneOsobowe[i + 1].strip()
+    
+            print(f"Witaj {imie} {nazwisko}")
+    
+        plik.close()
+
+'''
+Napisz program, który:
+a. zapisze w pliku losowe.txt 10 liczb losowych z zakresu od 1 do 100 w osobnych liniach.
+b. wyświetli sumę, minimum, maksimum, średnią liczb odczytanych z pliku losowe.txt
+'''
+
+    def LosoweLiczbyDoPliku(path):
+        plik = open(path, "w")
+        
+        for i in range(10):
+            plik.write(str(random.randint(1, 100)) + "\n")
+    
+        plik.close()
+    
+    def SumaLiczb(list):
+        suma = 0
+    
+        for i in list:
+            suma += i
+    
+        return suma
+    
+    def Zad_3():
+        path = "losowe.txt"
+        LosoweLiczbyDoPliku(path)
+        plik = open(path, "r")
+        LosoweLiczby = list(map(int, plik.readlines()))
+    
+        print(LosoweLiczby)
+    
+        print(f"Suma liczb: {SumaLiczb(LosoweLiczby)}")
+        print(f"Max: {max(LosoweLiczby)}")
+        print(f"Min: {min(LosoweLiczby)}")
+        print(f"Średnia: {statistics.mean(LosoweLiczby)}") # statistics.mean() --> oblicza średnią liczb z listy
