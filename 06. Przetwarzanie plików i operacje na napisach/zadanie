@@ -1,4 +1,9 @@
-'''Więcej informacji:  https://ggoralski.gitlab.io/python-wprowadzenie/czesc_i/16-pliki/'''
+'''
+Więcej informacji:  
+https://ggoralski.gitlab.io/python-wprowadzenie/czesc_i/16-pliki/
+https://pl.from-locals.com/python-collections-counter/#google_vignette
+https://trzykody.pl/index.php/python/tablice/
+'''
 
 '''
 Napisz program, który zapyta użytkownika o podanie imienia i nazwiska,
@@ -148,6 +153,21 @@ for slowo in slowa:
 
 print(f"Liczba wystąpień litery A: {liczba_a}")
 '''
+
+'''
+Napisz program, który:
+zapisze w pliku losowe_w_linii.txt 20 liczb losowych z zakresu od 1 do 10
+w jednej linii rozdzielone spacją (po ostatniej liczbie powinien być znak nowej linii).
+wyświetli liczby, które występują najczęściej
+'''
+from random import randrange
+counter=1
+
+for counter in range (20):
+    counter+=1
+    print(randrange(1,10), end=' ')
+
+
 
 
     
