@@ -160,12 +160,20 @@ zapisze w pliku losowe_w_linii.txt 20 liczb losowych z zakresu od 1 do 10
 w jednej linii rozdzielone spacją (po ostatniej liczbie powinien być znak nowej linii).
 wyświetli liczby, które występują najczęściej
 '''
+from collections import Counter
 from random import randrange
+import random
 counter=1
+T=[]
 
 for counter in range (20):
     counter+=1
-    print(randrange(1,10), end=' ')
+    T.append(random.randint(1, 10))
+
+licznik=Counter(T)
+
+print(T)
+print(licznik.most_common())
 
 
 
