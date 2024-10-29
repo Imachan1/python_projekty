@@ -161,7 +161,6 @@ w jednej linii rozdzielone spacją (po ostatniej liczbie powinien być znak nowe
 wyświetli liczby, które występują najczęściej
 '''
 from collections import Counter
-from random import randrange
 import random
 counter=1
 T=[]
