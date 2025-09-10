@@ -1,0 +1,18 @@
+with open('nominaly.txt', 'r') as file:
+    nominaly = list(map(int, file.readline().split()))
+
+
+
+kwota = int(input('Podaj liczbe: '))
+n=len(nominaly)
+ile = [0]*n
+for i in range (len(nominaly)):
+    ile[i]=kwota//nominaly[i]
+    kwota %= nominaly[i]
+
+for i in range (n):
+    if ile[i]>0:
+        print (ile[i] ," * ",nominaly[i])
+
+print(ile)
+print(nominaly)
