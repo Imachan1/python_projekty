@@ -1,0 +1,14 @@
+with open("dane.txt","r") as file:
+    nominaly = list(map(int, file.readline().split()))
+    kwoty = list(map(int, file.readlines()))
+
+print(nominaly)
+print(kwoty)
+
+kwota_minimalnych_nominalow = []
+najmniejszy_nominal = 0
+
+
+def Zachlanny():
+    for kwota in kwoty:
+        for nominal in najmniejszy_nominal:
