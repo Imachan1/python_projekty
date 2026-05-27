@@ -1,0 +1,17 @@
+file = open ('dane6.txt','r')
+
+ile = [0]*11
+for linia in file:
+    linia=linia.rstrip()
+    dlugosc=len(linia)
+    maksimum=0
+    for i in range(dlugosc):
+        cyfra=int(linia[i])
+        if maksimum<cyfra:
+            maksimum=cyfra
+    p = maksimum+1
+    ile[p]+=1
+for i in range(2,11):
+    print(i,ile[i])
+
+file.close()
